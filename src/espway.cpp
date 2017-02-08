@@ -176,7 +176,7 @@ void setup() {
 
     // WiFi soft AP init
     WiFi.persistent(false);
-    WiFi.softAPConfig(IPAddress(192, 168, 4, 1), IPAddress(192, 168, 4, 10),
+    WiFi.softAPConfig(IPAddress(192, 168, 4, 1), IPAddress(192, 168, 4, 1),
         IPAddress(255, 255, 255, 0));
     WiFi.softAP("ESPway", NULL, 1, 0, 1);
 
