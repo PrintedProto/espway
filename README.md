@@ -11,6 +11,42 @@ The project takes advantage of the [ESP8266 Arduino core](https://github.com/esp
 [libraries](https://github.com/Makuna/NeoPixelBus). Instead of Arduino's `analogWrite`,
 StephanBruens's [ESP8266_new_pwm](https://github.com/StefanBruens/ESP8266_new_pwm) is used for running the motors.
 
+## Building
+
+Use [PlatformIO](http://platformio.org/) to build and upload the code.
+The current code uses the ESP8266 staging platform. It has to be installed
+separately following [these instructions](http://docs.platformio.org/en/stable/platforms/espressif8266.html#using-arduino-framework-with-staging-version).
+
+### Uploading the code
+
+In the root folder of the project, run
+```
+pio run -t upload
+```
+PlatformIO should autodetect the USB port the WEMOS D1 mini is connected to.
+
+Then upload the filesystem:
+```
+pio run -t uploadfs
+```
+That will take a while because the filesystem is large.
+
+## Supported browsers
+
+Please use the latest Firefox or Chrome if possible. The HTML/JS UI uses some
+recent JavaScript features which might not be supported by older browsers.
+
+I'm intending to setup JavaScript transpilation with `gulp` to support older browsers.
+Before that is done, it might not make much sense to use any other than the
+aforementioned browsers, as I have no means of testing the code on anything else.
+
+## Deprecation
+
+The code is being ported to the native ESP8266 SDK on the [master branch](https://github.com/flannelhead/espway/tree/master).
+While that might be not yet ready for bigger audiences, new features will appear there.
+
+I might still support this (Arduino/PIO) branch for a while by backporting bugfixes.
+
 ## TODO
 
 Beware! There might be some nasty bugs or erratic behavior, although some major issues in the early code (watchdog resets, incorrect PID initialization) have been resolved.
