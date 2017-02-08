@@ -176,7 +176,9 @@ void setup() {
 
     // WiFi soft AP init
     WiFi.persistent(false);
-    WiFi.softAP("ESPway", NULL, 1, 0, 1);  // Use this as soon as new Arduino framework is released
+    WiFi.softAPConfig(IPAddress(192, 168, 4, 1), IPAddress(192, 168, 4, 10),
+        IPAddress(255, 255, 255, 0));
+    WiFi.softAP("ESPway", NULL, 1, 0, 1);
 
     // ESPAsyncWebServer init
     SPIFFS.begin();
